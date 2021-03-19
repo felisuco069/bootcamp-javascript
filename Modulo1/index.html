@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/site.css">
     <title>Datos de usuario</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="img">
+            <img src="" alt="Foto_avatar" id="avatar" class="avatar">
+        </div>
+        <div class="datos">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name">
+
+            <label for="lastname">Apellidos:</label>
+            <input type="text" name="lastname" id="lastname">
+        </div>
+        <div class="enviar">
+            <button type="button" onclick="console.log(document.getElementById('lastname').value)">Registrar</button>
+        </div>
+    </div>
+    <script src="JS/demo.js"></script>
 </body>
+
 </html>
