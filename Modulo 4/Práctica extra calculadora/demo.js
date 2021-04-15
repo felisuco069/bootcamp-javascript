@@ -1,18 +1,25 @@
 document.getElementById("pantalla").addEventListener("keyup", function () {
-    var getnum = parseFloat(document.getElementById("pantalla").value);
-    var result = document.getElementById("pantalla");
     document.querySelectorAll("button").forEach(function (btn) {
         btn.addEventListener("click", function (evt) {
-            $('#txt_tec_ins').val("");
-                    switch (evt.target.innerText) {
-                        case "+":
-                            document.getElementById("pantalla").innerText = getnum;
-                    
-                    
-
-                }
-
-            })
-
+            var getnum = parseFloat(document.getElementById("pantalla").value);
+            var resultEl = document.getElementById("pantalla");
+            switch (evt.target.innerText) {
+                case "+":
+                    var getnumNext = parseFloat(document.getElementById("pantalla").value);
+                    resultEl.innerText = getnum + getnum;
+                    break;
+                case "-":
+                    resultEl.innerText = getnum;
+                    break;
+                case "*":
+                    resultEl.innerText = getnum;
+                    break;
+                case "/":
+                    resultEl.innerText = getnum;
+                    break;
+                case "=":
+                    resultEl.innerText = getnum;
+            }
+        })
     })
 });
