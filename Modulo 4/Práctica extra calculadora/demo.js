@@ -1,25 +1,42 @@
-document.getElementById("pantalla").addEventListener("keyup", function () {
-    document.querySelectorAll("button").forEach(function (btn) {
-        btn.addEventListener("click", function (evt) {
-            var getnum = parseFloat(document.getElementById("pantalla").value);
-            var resultEl = document.getElementById("pantalla");
-            switch (evt.target.innerText) {
-                case "+":
-                    var getnumNext = parseFloat(document.getElementById("pantalla").value);
-                    resultEl.innerText = getnum + getnum;
-                    break;
-                case "-":
-                    resultEl.innerText = getnum;
-                    break;
-                case "*":
-                    resultEl.innerText = getnum;
-                    break;
-                case "/":
-                    resultEl.innerText = getnum;
-                    break;
-                case "=":
-                    resultEl.innerText = getnum;
-            }
-        })
-    })
-});
+var result = 0;
+var operation = "+";
+var operando;
+x
+function getValue() {
+    return Number(document.getElementById("pantalla").value);
+}
+
+function cleanInput() {
+    document.getElementById("pantalla").value = "";
+}
+
+function calculation(operationString) {
+    switch (operation) {
+        case "+":
+            result = result + getValue();
+            break;
+        case "-":
+            result = result - getValue();
+            break;
+        case "*":
+            result = result * getValue();
+            break;
+        case "/":
+            result = result / getValue();
+            break;
+
+    }
+    document.getElementById("result").innerText = result;
+    operation = operationString;
+    cleanInput();
+}
+
+function handleEqual() {
+    calculation();
+}
+
+document.getElementById("btn-suma").addEventListener("click", () => calculation('+'))
+document.getElementById("btn-resta").addEventListener("click", () => calculation('-'))
+document.getElementById("btn-producto").addEventListener("click", () => calculation('*'))
+document.getElementById("btn-division").addEventListener("click", () => calculation('/'))
+document.getElementById("btn-result").addEventListener("click", () => handleEqual())
