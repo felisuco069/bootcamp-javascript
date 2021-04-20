@@ -4,6 +4,7 @@ var ocup;
 var spa = 0;
 var typeR = document.getElementById("typeRoom");
 var typeOc = document.getElementById("ocupation");
+
 function getTypeRoom() {
     switch (typeR.value) {
         case "standard":
@@ -25,11 +26,7 @@ function nigthNum() {
 
 function spaPrice() {
     var box = document.getElementById("spa").checked;
-    if (box) {
-        var spa = 20;
-    } else {
-        var spa = 0;
-    }
+    box ? spa = 20 : spa = 0;
     return spa;
 
 }
@@ -52,14 +49,15 @@ function getOcupRoom() {
 function getNightPark() {
     return document.getElementById("nightPark").value;
 }
+
 function roomPrice() {
-    totalPrice = ((getTypeRoom() + spaPrice())*getOcupRoom())*nigthNum() + 10*getNightPark();
-    
+    totalPrice = ((getTypeRoom() + spaPrice()) * getOcupRoom()) * nigthNum() + 10 * getNightPark();
+
     document.getElementById("result").innerText = totalPrice;
 }
-
-document.getElementById("nightPark").addEventListener("click", getNightPark);
-document.getElementById("night").addEventListener("click", nigthNum);
-document.getElementById("ocupation").addEventListener("change", getOcupRoom);
-document.getElementById("typeRoom").addEventListener("change", getTypeRoom);
+// las dejo comentadas porque en realidad, con el botón no es necesario cada evento.
+// document.getElementById("nightPark").addEventListener("click", getNightPark);
+// document.getElementById("night").addEventListener("click", nigthNum);
+// document.getElementById("ocupation").addEventListener("change", getOcupRoom);
+// document.getElementById("typeRoom").addEventListener("change", getTypeRoom);
 document.getElementById("calc").addEventListener("click", roomPrice);
