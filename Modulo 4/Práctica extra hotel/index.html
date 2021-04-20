@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva hotel</title>
+</head>
+
+<body>
+    <span>Tipo de habitación:</span>
+    <select name="" id="typeRoom">
+        <option value="standard">Standard</option>
+        <option value="juniorSuite" selected>Junior Suite</option>
+        <option value="Suite">Suite</option>
+    </select>
+    <span>Incluir circuito de SPA</span>
+    <input type="checkbox" name="" id="spa">
+    <select name="" id="ocupation">
+        <option value="simple">Simple</option>
+        <option value="doble" selected>Doble</option>
+        <option value="triple">Triple</option>
+    </select>
+    <span>Número de noches de la reserva</span>
+    <input type="number" name="night" id="night">
+    <span>Número de noches de parking;</span>
+    <input type="number" name="nightPark" id="nightPark">
+    <!-- <button id="calc">Calcular precio</button> -->
+    <span>El importe de la habitación con las características seleccionadas es de:</span>
+    <span id="result"></span>
+    <span>€</span>
+    <script src="demo.js"></script>
+</body>
+
+</html>
