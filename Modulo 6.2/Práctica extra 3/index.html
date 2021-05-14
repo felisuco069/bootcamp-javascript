@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="site.css">
+    <title>Calculadora de Nomina</title>
+</head>
+<body>
+    <h1>Calculadora de nómina</h1>
+    <label for="grossSalary"></label>
+    <input type="number" id="grossSalary">
+    <label for="pagas">Numero de pagas (12 o 14)</label>
+    <input type="number" id="pagas">
+    <button id="calculate">Calcular</button>
+    <div id="result">
+        <span>Salario bruto anual: </span>
+        <span id="grossSalary2"></span>
+        <span>Importe destinado a la Seguridad social: </span>
+        <span id="paySocualSecurity"></span>
+        <span>Importe destinado a IRPF: </span>
+        <span id="payIrpf"></span>
+        <span>Salario neto anual: </span>
+        <span id="annualsalary"></span>
+        <span>Salario neto mensual: </span>
+        <span id="monthlysalary"></span>
+    </div>
+    <script src="demo.js"></script>
+</body>
+</html>
