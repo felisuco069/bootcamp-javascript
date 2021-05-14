@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+}
+
+.container {
+    margin: 0% auto;
+    flex-direction: column;
+}
+
+textarea {
+    width: 25%;
+    background-color: rgb(134, 213, 236);
+    border-radius: 3px;
+}
+
+button {
+    margin: 1% 1% 1% 1%;
+    color: aliceblue;
+    background-color: black;
+}
+
+span {
+    margin: 0 3px;
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+}
+
+.datos>div {
+    margin: 3px auto;
+}
+
+input {
+    width: 32px;
+}
+#result{
+    width: auto;
+    font-weight: bold;
+}
