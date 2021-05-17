@@ -1,9 +1,9 @@
 var plainAlphabet = "abcdefghijklmnopqrstuvwxyz:()!¡,'";
 var encryptedAlphabet = "qw,ert(yuio'pa:sdfg!hjklz¡xcv)bnm";
-var newText = "";
 
 function getTextEncrypted() {
     var textToChange = document.getElementById("msnToEncrypt").value;
+    var newText = "";
     for (i = 0; i < textToChange.length; i++) {
         if (plainAlphabet.indexOf(textToChange[i]) < 0) {
             newText = newText + textToChange[i];
@@ -23,6 +23,7 @@ function getTextEncrypted() {
 
 function getTextDecrypted() {
     var textToChange = document.getElementById("msnToDecrypt").value;
+    var newText = "";
     for (i = 0; i < textToChange.length; i++) {
         if (encryptedAlphabet.indexOf(textToChange[i]) < 0) {
             newText = newText + textToChange[i];
