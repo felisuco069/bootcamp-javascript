@@ -5,13 +5,11 @@ var newText = "";
 function getTextEncrypted() {
     var textToChange = document.getElementById("msnToEncrypt").value;
     for (i = 0; i < textToChange.length; i++) {
-        if (textToChange[i] === " ") {
-            newText = newText + " ";
-        } else if (textToChange[i] === "ñ") {
-            newText = newText + "ñ";
-        }else {
+        if (plainAlphabet.indexOf(textToChange[i]) < 0) {
+            newText = newText + textToChange[i];
+        } else {
             newText = newText + encryptedAlphabet[plainAlphabet.indexOf(textToChange[i])];
-           // El siguiente código es sin usar la opción de indexOf.
+            // El siguiente código es sin usar la opción de indexOf.
             // for (s = 0; s < plainAlphabet.length; s++) {
             //     if (textToChange[i] === plainAlphabet[s]) {
             //         newText = newText + encryptedAlphabet[s];
@@ -26,11 +24,9 @@ function getTextEncrypted() {
 function getTextDecrypted() {
     var textToChange = document.getElementById("msnToDecrypt").value;
     for (i = 0; i < textToChange.length; i++) {
-        if (textToChange[i] === " ") {
-            newText = newText + " ";
-        } else if (textToChange[i] === "ñ") {
-            newText = newText + "ñ";
-        }else {
+        if (encryptedAlphabet.indexOf(textToChange[i]) < 0) {
+            newText = newText + textToChange[i];
+        } else {
             newText = newText + plainAlphabet[encryptedAlphabet.indexOf(textToChange[i])];
             // El siguiente código es sin usar la opción de indexOf.
             // for (s = 0; s < encryptedAlphabet.length; s++) {
