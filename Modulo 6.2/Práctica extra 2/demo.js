@@ -1,5 +1,4 @@
-var bills = [200, 100, 50, 20, 10, 5];
-var coins = [200, 100, 50, 20, 10, 5, 2, 1];
+var moneys = [20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
 
 var getData = () => {
     var totalimport = document.getElementById("totalImport").value;
@@ -13,31 +12,31 @@ var getData = () => {
         getChange(totalimport, moneyDelivered);
     }
 }
-var getChange = (total, money) => {
-    var changeReturn = money - total;
-    if (changeReturn >= 5) {
-        for (var bill in bills) {
-            if (Math.floor(changeReturn / bills[bill]) > 0) {
-                var text = document.createElement("span");
-                text.innerText = "Necesitas " + Math.floor(changeReturn / bills[bill]) + " billetes de " + bills[bill];
-                document.getElementById("containerResult").appendChild(text);
-                changeReturn = changeReturn - (Math.floor(changeReturn / bills[bill]) * bills[bill]);
-            }
-        }
+var getlineMoney = (change, money) => {
+    var text = document.createElement("span");
+    if (money >= 500) {
+        text.innerText = "Necesitas " + Math.floor(change / money) + " billetes de " + money/100 + " €.";
+    } else if (money < 500 && money >= 100) {
+        text.innerText = "Necesitas " + Math.floor(change / money) + " monedas de " + money/100 + " €.";
+    } else if (money < 100 && money > 0) {
+        text.innerText = "Necesitas " + Math.floor(change / money) + " monedas de " + money + " céntimos.";
     }
-    if (changeReturn < 5 && changeReturn * 100 > 0) {
-        for (var coin in coins) {
-            if (Math.floor(changeReturn / coins[coin]) > 0) {
-                var text = document.createElement("span");
-                text.innerText = "Necesitas " + Math.floor(changeReturn / coins[coin]) + " monedas de " + coins[coin];
-                document.getElementById("containerResult").appendChild(text);
-                changeReturn = changeReturn - (Math.floor(changeReturn / coins[coin]) * coins[coin]);
+    document.getElementById("containerResult").appendChild(text);
+    return change = change - (Math.floor(change / money) * money);
+}
+var getChange = (total, money) => {
+    var changeReturn = (money - total) * 100;
+    if (changeReturn === 0) {
+        var text = document.createElement("span");
+        text.innerText = "El importe pagado es justo el importe de compra. El cambio es 0.";
+        document.getElementById("containerResult").appendChild(text);
+    } else {
+        for (var money of moneys) {
+            if (Math.floor(changeReturn / money) > 0) {
+                changeReturn = getlineMoney(changeReturn, money);
             }
         }
     }
 }
-
-
-
 
 document.getElementById("calculate").addEventListener("click", getData);
