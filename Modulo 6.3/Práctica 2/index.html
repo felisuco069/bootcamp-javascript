@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="site.css">
+  <title>Calculadora cambio óptimo</title>
+</head>
+
+<body>
+  <h3>Primero necesitamos saber el número de billetes y monedas de cada uno de los valores.</h3>
+  <div class="container">
+    <div class="cashName">
+      <label for="money20000">Nº de billetes de 200: </label>
+      <label for="money10000">Nº de billetes de 100: </label>
+      <label for="money5000">Nº de billetes de 50: </label>
+      <label for="money2000">Nº de billetes de 20: </label>
+      <label for="money1000">Nº de billetes de 10: </label>
+      <label for="money500">Nº de billetes de 5: </label>
+      <label for="money200">Nº de modedas de 2 euros: </label>
+      <label for="money100">Nº de modedas de 1 euros: </label>
+      <label for="money50">Nº de modedas de 50 céntimos: </label>
+      <label for="money20">Nº de modedas de 20 céntimos: </label>
+      <label for="money10">Nº de modedas de 10 céntimos: </label>
+      <label for="money5">Nº de modedas de 5 céntimos: </label>
+      <label for="money2">Nº de modedas de 2 céntimos: </label>
+      <label for="money1">Nº de modedas de 1 céntimo: </label>
+    </div>
+    <div class="cashNumber">
+      <input type="number" id="money20000">
+      <input type="number" id="money10000">
+      <input type="number" id="money5000">
+      <input type="number" id="money2000">
+      <input type="number" id="money1000">
+      <input type="number" id="money500">
+      <input type="number" id="money200">
+      <input type="number" id="money100">
+      <input type="number" id="money50">
+      <input type="number" id="money20">
+      <input type="number" id="money10">
+      <input type="number" id="money5">
+      <input type="number" id="money2">
+      <input type="number" id="money1">
+    </div>
+  </div>
+
+<div class="shop">
+  <label for="totalImport">Introduzca el importe total de la compra: </label>
+  <input type="number" id="totalImport">
+  <label for="moneyDelivered">Introduzca el dinero entregado:</label>
+  <input type="number" id="moneyDelivered">
+  <button id="calculate">Calcular vuelta</button>
+</div>
+  <div id="containerResult"></div>
+  <script src="demo.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+#containerResult > span{
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    margin-bottom: 16px;
+}
+.container>div{
+    margin: auto 5px;
+}
+.cashName{
+    display: flex;
+    flex-direction: column;
+}
+.cashName>label{
+    margin: 1px;
+}
+.cashNumber{
+    display: flex;
+    flex-direction: column;
+}
+.cashNumber>input{
+    width: 40px;
+}
+.shop{
+    display: flex;
+    flex-direction: column;
+}
+.shop>input{
+    width: 128px;
+}
+button{
+    width:256px;
+    margin-top: 12px;
+    height: 64px;
+    font-weight: bold;
+    font-size: large;
+    border-radius: 6px;
+    background-color: rgb(123, 123, 241);
+    color: rgb(20, 66, 2);
+}
