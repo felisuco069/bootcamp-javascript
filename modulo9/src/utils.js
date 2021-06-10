@@ -52,32 +52,29 @@ const showCharacter = character => {
         createParagraph("Nickname: " + character.nickname)
     );
 
+
     if (character.name === "Henry Schrader") {
         character.name = "Hank Schrader";
-        dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + character.name).then(data => {
-            for (let elemento of data) {
-                characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
-            }
-        });
+        detail(character.name, characterDetail);
+
     } else if (character.name === "Gustavo Fring") {
         character.name = "Gus Fring";
-        dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + character.name).then(data => {
-            for (let elemento of data) {
-                characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
-            }
-        });
+        detail(character.name, characterDetail);
 
     } else {
-        dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + character.name).then(data => {
-            for (let elemento of data) {
-                characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
-            }
-
-
-        });
+        detail(character.name, characterDetail);
     }
 };
+const detail = (actor, characterDetail) => {
+    dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + actor).then(data => {
+        for (let elemento of data) {
+            characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
+        }
 
+
+    });
+
+}
 const createParagraph = text => {
     const element = document.createElement("p");
     element.append(text);
