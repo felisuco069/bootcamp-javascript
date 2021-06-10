@@ -3,7 +3,7 @@ import * as dataBusiness from "./data-business";
 import * as createApp from "./utils";
 
 
-dataBusiness.getData().then(data => {
+dataBusiness.getData("https://www.breakingbadapi.com/api/characters").then(data => {
     const myArray = [];
     for (let element of data) {
         const elemArray = createApp.createCharacterRow(element);

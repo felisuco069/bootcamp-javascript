@@ -1,10 +1,10 @@
 import axios from "axios";
 
-function getData() {
-    return axios.get("https://www.breakingbadapi.com/api/characters")
+function getData(url) {
+    return axios.get(url)
         .then(response => response.data);
 }
 
 export {
     getData,
-}
+    }

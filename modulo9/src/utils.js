@@ -1,3 +1,5 @@
+import * as dataBusiness from "./data-business";
+
 const createCharacterRow = character => {
     const element = document.createElement("div");
 
@@ -49,16 +51,39 @@ const showCharacter = character => {
     characterDetail.appendChild(
         createParagraph("Nickname: " + character.nickname)
     );
-    characterDetail.appendChild(
-        createParagraph("Status: " + character.status)
-    );
+
+    if (character.name === "Henry Schrader") {
+        character.name = "Hank Schrader";
+        dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + character.name).then(data => {
+            for (let elemento of data) {
+                characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
+            }
+        });
+    } else if (character.name === "Gustavo Fring") {
+        character.name = "Gus Fring";
+        dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + character.name).then(data => {
+            for (let elemento of data) {
+                characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
+            }
+        });
+
+    } else {
+        dataBusiness.getData("https://www.breakingbadapi.com/api/quote?author=" + character.name).then(data => {
+            for (let elemento of data) {
+                characterDetail.appendChild(createParagraph("Quotes: " + elemento.quote));
+            }
+
+
+        });
+    }
 };
 
 const createParagraph = text => {
     const element = document.createElement("p");
     element.append(text);
     return element;
-};
+}
+
 
 export {
     createCharacterRow,
