@@ -1,28 +1,21 @@
 import { history } from '../../core/router';
-import { getAccountList } from '../../common/helpers/account-list.api';
-import { getMovementList } from './movements.api.js';
-import { mapAccountFromApiToViewModel } from './movements.mappers.js';
+import { onSetValues } from '../../common/helpers/element.helpers';
+import { getMovementList, getAccountList } from './movements.api.js';
+import { mapMovementstFromApiToViewModel, mapAccountFromApiToViewModel } from './movements.mappers.js';
 import { addMovementRows } from './movements.helpers.js';
 
 
 const params = history.getParams();
+console.log(params.id);
 
-getAccountList().then(accountLists => {
-    accountLists.find(accountList => {
-        if (accountList.id === params.id) {
-            const ccc = document.getElementById("balance");
-            ccc.innerText = `${accountList.balance} €`;
-            const alias = document.getElementById("alias")
-            alias.innerText = accountList.name;
-            const ibanNumber = document.getElementById("iban");
-            ibanNumber.innerText = accountList.iban;
-        }
-    });
+getAccountList(params.id).then(accountLists => {
+
+    const account = mapAccountFromApiToViewModel(accountLists);
+    onSetValues(account);
 });
 
-getMovementList().then(movements => {
-    let results = movements.filter(movement => movement.accountId === params.id);
-    let arrayMovements = results.map(result => mapAccountFromApiToViewModel(result));
+getMovementList(params.id).then(movements => {
+    let arrayMovements = movements.map(movement => mapMovementstFromApiToViewModel(movement));
     addMovementRows(arrayMovements);
 });
 
