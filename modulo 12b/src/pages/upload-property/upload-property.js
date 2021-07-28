@@ -124,7 +124,7 @@ onUpdateField('price', (event) => {
     const value = event.target.value;
     datesProperty = {
         ...datesProperty,
-        price: value,
+        price: Number(value),
     }
     formValidation.validateField('price', datesProperty.price).then(result => {
         onSetError('price', result);
